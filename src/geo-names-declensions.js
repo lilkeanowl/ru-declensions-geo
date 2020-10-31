@@ -1,48 +1,50 @@
-export default class GeoNamesDeclensions {
-    // Согласные
-    static consonants = [
-        'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ',
-    ];
+// Согласные
+const consonants = [
+    'б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ',
+];
 
-    // Гласные
-    static vowels = [
-        'а', 'и', 'е', 'ё', 'о', 'у', 'ы', 'э', 'ю',
-    ];
+// Гласные
+const vowels = [
+    'а', 'и', 'е', 'ё', 'о', 'у', 'ы', 'э', 'ю',
+];
 
-    // Задненёбные согласные
-    static velarConsonants = ['г', 'к', 'х'];
+// Задненёбные согласные
+const velarConsonants = ['г', 'к', 'х'];
 
-    // Звонкие согласные
-    static sonorousConsonants = ['б', 'в', 'г', 'д', 'з', 'ж', 'л', 'м', 'н', 'р'];
+// Звонкие согласные
+const sonorousConsonants = ['б', 'в', 'г', 'д', 'з', 'ж', 'л', 'м', 'н', 'р'];
 
-    // Глухие согласные
-    static deafConsonants = ['п', 'ф', 'к', 'т', 'с', 'ш', 'х', 'ч', 'щ'];
+// Глухие согласные
+const deafConsonants = ['п', 'ф', 'к', 'т', 'с', 'ш', 'х', 'ч', 'щ'];
 
-    // Согласные, после которых "и", а не "ы", а так же "е", а не "о"
-    static iConsonants = ['ж', 'ш', 'щ', 'ч'];
+// Согласные, после которых "и", а не "ы", а так же "е", а не "о"
+const iConsonants = ['ж', 'ш', 'щ', 'ч'];
 
-    // Multiple mutable names delimeter
-    static delimiters = [' ', '-на-'];
+// Multiple mutable names delimeter
+const delimiters = [' ', '-на-'];
 
-    // Delimeter for names, where only last part is mutable, like "Каменск-Уральский"
-    static immutableDelimiters = ['-'];
+// Delimeter for names, where only last part is mutable, like "Каменск-Уральский"
+const immutableDelimiters = ['-'];
 
-    // Popular abbreviations, they are immutable
-    static abbreviations = ['сша', 'оаэ', 'ссср', 'юар'];
+// Popular abbreviations, they are immutable
+const abbreviations = ['сша', 'оаэ', 'ссср', 'юар'];
 
-    // These words have not cases
-    static immutableParts = ['бич', 'хиллз', 'стрит', 'сквер', 'куба', 'спрингс'];
-    static immutableWords = ['яя', 'шмидта', 'дубаи', 'хельсинки', 'пролетариата'];
-    static immutableSuffixes = ['сло', 'нгли', 'ухи', 'гри', 'рных', 'эли', 'шали', 'чили', 'лиси', 'вуа', 'ьота',
-        'саки', 'аа', 'уоки'];
+// These words have not cases
+const immutableParts = ['бич', 'хиллз', 'стрит', 'сквер', 'куба', 'спрингс'];
+const immutableWords = ['яя', 'шмидта', 'дубаи', 'хельсинки', 'пролетариата'];
+const immutableSuffixes = ['сло', 'нгли', 'ухи', 'гри', 'рных', 'эли', 'шали', 'чили', 'лиси', 'вуа', 'ьота',
+    'саки', 'аа', 'уоки'];
 
-    // Preposition "на" instead of "в" as usual - popular islands
-    static locationsNa = ['мадагаскар', 'суматра', 'ява', 'куба', 'филиппины', 'сахалин', 'хоккайдо', 'хонсю', 'шпицберген',
-        'кюсю', 'тайвань', 'сицилия', 'сардиния', 'сикоку', 'бананал', 'бали', 'ямайка', 'гавайи', 'кипр', 'крит',
-        'корсика', 'тринидад', 'тобаго', 'гаити', 'маврикий', 'канары', 'корфу', 'родес', 'ланцарот', 'мальта', 'мадейра',
-        'тасмания', 'реюньон', 'фиджи', 'майорка', 'тенерифе', 'мадура', 'хайнань', 'борнео', 'цейлон', 'ява', 'минданао'
-    ];
+// Preposition "на" instead of "в" as usual - popular islands
+const locationsNa = ['мадагаскар', 'суматра', 'ява', 'куба', 'филиппины', 'сахалин', 'хоккайдо', 'хонсю', 'шпицберген',
+    'кюсю', 'тайвань', 'сицилия', 'сардиния', 'сикоку', 'бананал', 'бали', 'ямайка', 'гавайи', 'кипр', 'крит',
+    'корсика', 'тринидад', 'тобаго', 'гаити', 'маврикий', 'канары', 'корфу', 'родес', 'ланцарот', 'мальта', 'мадейра',
+    'тасмания', 'реюньон', 'фиджи', 'майорка', 'тенерифе', 'мадура', 'хайнань', 'борнео', 'цейлон', 'ява', 'минданао'
+];
 
+
+class GeoNamesDeclensions {
+    
     /**
      * Get cases for given name
      * @param name Geographical name
@@ -54,20 +56,20 @@ export default class GeoNamesDeclensions {
             return null;
         }
 
-        for(let i = 0; i < this.delimiters.length; i++) {
-            let v = this.delimiters[i];
+        for(let i = 0; i < delimiters.length; i++) {
+            let v = delimiters[i];
             if (name.indexOf(v) !== -1) {
                 let words = name.split(v);
                 return this.composeCasesFromWords(words, v);
             }
         }
 
-        for(let i = 0; i < this.immutableDelimiters.length; i++) {
-            let v = this.immutableDelimiters[i];
+        for(let i = 0; i < immutableDelimiters.length; i++) {
+            let v = immutableDelimiters[i];
             if (name.indexOf(v) !== -1) {
                 let words = name.split(v);
                 return this.composeCases(words.map((p, i) => {
-                    if (i == words.length - 1 && this.immutableParts.indexOf(p.toLowerCase()) === -1) {
+                    if (i == words.length - 1 && immutableParts.indexOf(p.toLowerCase()) === -1) {
                         // Mutable part
                         return this.getCasesFromOneWord(p, i, words.length);
                     } else {
@@ -78,7 +80,7 @@ export default class GeoNamesDeclensions {
             }
         }
 
-        if (this.abbreviations.indexOf(lname) !== -1) {
+        if (abbreviations.indexOf(lname) !== -1) {
             // Have not declensions
             return this.getBaseForm(name);
         }
@@ -109,13 +111,13 @@ export default class GeoNamesDeclensions {
         let e4th = lname.slice(-4, -3);
 
         // Check for immutable suffix
-        for(let i = 0; i < this.immutableSuffixes.length; i++) {
-            if (lname.endsWith(this.immutableSuffixes[i])) {
+        for(let i = 0; i < immutableSuffixes.length; i++) {
+            if (lname.endsWith(immutableSuffixes[i])) {
                 return this.getBaseForm(name);
             }
         }
 
-        if (this.immutableWords.indexOf(lname) !== -1) {
+        if (immutableWords.indexOf(lname) !== -1) {
             return this.getBaseForm(name);
         }
 
@@ -471,7 +473,7 @@ export default class GeoNamesDeclensions {
                 rodSuf = '';
             } else if (last3 === 'рцы') {
                 // Люберцы
-                rodPrefix = name.slice(0, -2)
+                rodPrefix = name.slice(0, -2);
                 rodSuf = 'ец';
             } else if (last2 === 'ши' || last2 === 'щи' || last2 === 'чи' || last2 === 'ри') {
                 rodSuf = 'ей';
@@ -591,19 +593,19 @@ export default class GeoNamesDeclensions {
     }
 
     static isVelarConsonant(v) {
-        return this.velarConsonants.indexOf(v) !== -1;
+        return velarConsonants.indexOf(v) !== -1;
     }
 
     static isConsonant(v) {
-        return this.consonants.indexOf(v) !== -1;
+        return consonants.indexOf(v) !== -1;
     }
 
     static isVowel(v) {
-        return this.vowels.indexOf(v) !== -1;
+        return vowels.indexOf(v) !== -1;
     }
 
     static isIConsonants(v) {
-        return this.iConsonants.indexOf(v) !== -1;
+        return iConsonants.indexOf(v) !== -1;
     }
 
     // И или Ы после шипящей
@@ -634,14 +636,14 @@ export default class GeoNamesDeclensions {
      * Проверка звонкости согласной
      */
     static isSonorousConsonant(char) {
-        return this.sonorousConsonants.indexOf(char) !== -1;
+        return sonorousConsonants.indexOf(char) !== -1;
     }
 
     /**
      * Проверка глухости согласной
      */
     static isDeafConsonant(char) {
-        return this.deafConsonants.indexOf(char) !== -1;
+        return deafConsonants.indexOf(char) !== -1;
     }
 
     /**
@@ -650,11 +652,22 @@ export default class GeoNamesDeclensions {
      * @returns {boolean} True, if name has non standart cases
      */
     static isNonStandartCase(name) {
-        return this.nonStandartCase.indexOf(name) !== -1;
+        return nonStandartCase.indexOf(name) !== -1;
     }
 
     static isLocationNa(name) {
-        return this.locationsNa.indexOf(name) !== -1;
+        return locationsNa.indexOf(name) !== -1;
+    }
+
+    static getPreposition(name) {
+        let lname = typeof name === 'string' ? name.toLowerCase() : '';
+        let preposition = this.isLocationNa(lname) ? 'на' : 'в';
+        let first1 = lname.slice(0, 1);
+        let s2th = lname.slice(1, 2);
+        if ((first1 === 'в' || first1 === 'ф') && ! this.isVowel(s2th)) {
+            preposition += 'о';
+        }
+        return preposition;
     }
 
     /**
@@ -663,15 +676,16 @@ export default class GeoNamesDeclensions {
      * @returns {string} Example: "в Санкт-Петербурге", "на Кубе", "во Франции"
      */
     static inLocation(name) {
-        let lname = typeof name === 'string' ? name.toLowerCase() : '';
-        let preposition = this.isLocationNa(lname) ? 'на' : 'в';
-        let first1 = lname.slice(0, 1);
-        let s2th = lname.slice(1, 2);
-        if ((first1 === 'в' || first1 === 'ф') && ! this.isVowel(s2th)) {
-            preposition += 'о';
-        }
-        let cases = this.getCases(name);
-
+        const preposition = this.getPreposition(name);
+        const cases = this.getCases(name);
         return `${preposition} ${cases[5]}`;
     }
+
+    static toLocation(name) {
+        const preposition = this.getPreposition(name);
+        const cases = this.getCases(name);
+        return `${preposition} ${cases[3]}`;
+    }
 }
+
+module.exports = GeoNamesDeclensions;
