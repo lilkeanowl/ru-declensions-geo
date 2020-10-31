@@ -55,7 +55,27 @@ Returns: "на Кубе"
 inLocation('Франция')
 ```
 Returns: "во Франции"
- 
+
+### toLocation(name)
+Returns string "в/на [name]" for a given toponym as final destination point.
+
+Examples:
+```javascript
+toLocation('Санкт-Петербург')
+```
+Returns: "в Санкт-Петербург"
+
+```javascript
+toLocation('Куба')
+```
+
+Returns: "на Кубу"
+
+```javascript
+toLocation('Франция')
+```
+Returns: "во Францию"
+
 ## Tests
 There are many tests in test folder. You can run it with:
 ```bash

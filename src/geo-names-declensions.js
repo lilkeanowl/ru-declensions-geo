@@ -680,7 +680,12 @@ class GeoNamesDeclensions {
         const cases = this.getCases(name);
         return `${preposition} ${cases[5]}`;
     }
-
+    
+     /**
+     * Get string "в/на XXX" for a given toponym as a destination point
+     * @param name Toponym name
+     * @returns {string} Example: "в Санкт-Петербург", "на Кубу", "во Францию"
+     */
     static toLocation(name) {
         const preposition = this.getPreposition(name);
         const cases = this.getCases(name);
