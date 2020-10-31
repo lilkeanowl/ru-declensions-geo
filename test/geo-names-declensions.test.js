@@ -1,7 +1,6 @@
-const chai = require('chai');
 const assert = require('assert');
 
-import GeoNamesDeclensions from '../src/geo-names-declensions';
+const GeoNamesDeclensions = require('../src/geo-names-declensions');
 
 // Most of words are from:
 // https://raw.githubusercontent.com/mfursov/russian-cities/master/database/cities_inflection.csv
@@ -2142,28 +2141,36 @@ const words = [
 ];
 
 const locations = [
-    ['Санкт-Петербург', 'в Санкт-Петербурге'],
-    ['Куба', 'на Кубе'],
-    ['Франция', 'во Франции'],
-    ['Вьетнам', 'во Вьетнаме'],
-    ['Венеция', 'в Венеции'],
-    ['Филиппины', 'на Филиппинах'],
+    ['Санкт-Петербург', 'в Санкт-Петербурге', 'в Санкт-Петербург'],
+    ['Куба', 'на Кубе', 'на Кубу'],
+    ['Франция', 'во Франции', 'во Францию'],
+    ['Вьетнам', 'во Вьетнаме', 'во Вьетнам'],
+    ['Венеция', 'в Венеции', 'в Венецию'],
+    ['Филиппины', 'на Филиппинах', 'на Филиппины'],
 ];
 
 describe('GeoNamesDeclensions', () => {
     describe('getCases', () => {
         words.forEach(v => {
             it(v[0], () => {
-                assert.deepEqual(GeoNamesDeclensions.getCases(v[0]), v.length == 6 ? v : (new Array(6).fill(v[0])));
-            })
+                assert.deepStrictEqual(GeoNamesDeclensions.getCases(v[0]), v.length == 6 ? v : (new Array(6).fill(v[0])));
+            });
         });
     });
 
     describe('inLocation', () => {
         locations.forEach(v => {
             it(v[0], () => {
-                assert.equal(GeoNamesDeclensions.inLocation(v[0]), v[1]);
-            })
+                assert.strictEqual(GeoNamesDeclensions.inLocation(v[0]), v[1]);
+            });
+        });
+    });
+
+    describe('toLocation', () => {
+        locations.forEach(v => {
+            it(v[0], () => {
+                assert.strictEqual(GeoNamesDeclensions.toLocation(v[0]), v[2]);
+            });
         });
     });
 });

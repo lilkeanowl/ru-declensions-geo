@@ -1,3 +1,3 @@
-export { default as GeoNamesDeclensions } from './geo-names-declensions';
+const GeoNamesDeclensions = require('./geo-names-declensions');
 
-//module.exports = require('geo-names-declensions');
+module.exports = GeoNamesDeclensions;
